@@ -1,0 +1,21 @@
+// Place all the styles related to the specials controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.field{
+  display: flex;
+  &__name{
+    font-size: 20px;
+  }
+}
+
+.special{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 10px;
+  &__name{
+    font-size: 20px;
+    &__select{
+      size: 50px;
+    }
+  }
+}

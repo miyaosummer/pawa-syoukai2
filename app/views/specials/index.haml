@@ -1,0 +1,19 @@
+= render partial:'/users/header'
+
+.warapper
+  .main-view
+    .main-view__status
+      .main-view__status__name
+        =current_user.nickname
+        <br>
+      .main-view__status__image
+        = image_tag src=current_user.image, size: "200x200"
+      .main-view__index__ability
+        = render partial:'/basics/show',basic: @basics
+    .main-view__special
+      -@specials.each do |special|
+        -if current_user.id == special.user_id
+          .main-view__special__original
+            =special.name
+        -else
+

@@ -1,0 +1,28 @@
+.header
+  %h1 あなたの能力評価
+.main
+  %h2 能力ランク
+  -@basics.each do |basic|
+    -if current_user.id == basic.user_id
+      -@num += basic.number
+  %h2.main__lank="合計能力値：#{@num}"
+  - i = @num
+  -if @num >= 500 && @num <= 600
+    = image_tag src="/assets/S.png", size: "100x50",class:"main__image"
+  -elsif @num >= 450
+    = image_tag src="/assets/A.png", size: "100x50",class:"main__image"
+  -elsif @num >= 400
+    = image_tag src="/assets/B.png", size: "100x50",class:"main__image"
+  -elsif @num >= 350
+    = image_tag src="/assets/C.png", size: "100x50",class:"main__image"
+  -elsif @num >= 300
+    = image_tag src="/assets/D.png", size: "100x50",class:"main__image"
+  -elsif @num >= 250
+    = image_tag src="/assets/E.png", size: "100x50",class:"main__image"
+  -elsif @num >= 200
+    = image_tag src="/assets/F.png", size: "100x50",class:"main__image"
+  -elsif @num >= 0
+    = image_tag src="/assets/G.png", size: "100x50",class:"main__image"
+  -else
+    %h2???
+

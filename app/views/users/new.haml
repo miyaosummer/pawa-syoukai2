@@ -1,0 +1,10 @@
+.user
+  .user__index
+    %h1 名前
+    = form_with model: @user,local: true do |f|
+      = f.text_field :name,placeholder:"name",class:"user__index__name"
+      = f.text_field :image,placeholder:"image",class:"user__index__name"
+      <br>
+      = f.submit '作成！！',class:"user__index__btn"
+      <br>
+      =link_to "作成画面に戻る",user_path(current_user.id),method: :get,class:"user__index__link"

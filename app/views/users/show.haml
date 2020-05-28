@@ -1,0 +1,40 @@
+.flash
+  = flash[:success]
+.good
+  = flash[:good]
+.delete
+  = flash[:delete]
+
+= render partial:'/users/header'
+.warapper
+  .side-bar
+    入力フォーム
+    .side-bar__abilities
+      %li
+        =link_to "基礎能力を決める",new_basic_path,class:"link"
+    .side-bar__specials
+      %li
+        =link_to "特殊能力を作る",new_special_path,class:"link"
+    %h1.count
+  .main-view
+    .main-view__status
+      .main-view__status__name
+        =current_user.nickname
+        <br>
+        .main-view__status__name__edit
+          =link_to "編集",edit_user_path(current_user.id),method: :get,class:"link__edit"
+      .main-view__status__image
+        = image_tag src=current_user.image, size: "200x200"
+      .main-view__index__ability
+        = render partial:'/basics/basic',basics: @basics
+    .main-view__special
+      -@specials.each do |special|
+        -if current_user.id == special.user_id
+          .main-view__special__original
+            =special.name
+            <br>
+            =link_to "削除",special_path(special.id),method: :delete,class:"main-view__special__original__delete"
+        -else
+
+
+

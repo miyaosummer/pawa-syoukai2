@@ -1,0 +1,9 @@
+.header
+  .header__top
+    データあれこれ
+.menu
+  %h1 めにゅ〜
+  .menu_index
+    =link_to "能力が選ばれてる数",lanks_path
+  -if user_signed_in?
+    =link_to "あなたの能力評価", lank_path(current_user.id)

@@ -1,0 +1,17 @@
+.user
+  .user__index
+    %h1 基礎能力を入力しよう！
+    = form_with model: @basic,local: true do |f|
+      = f.select :name, [["能力を選んでね。",""],["コミュ力","コミュ力"],["企画力","企画力"],["明るさ","明るさ"],["気遣い力","気遣い力"],["モテ力","モテ力"],["気が利く","気が利く"],["真面目度","真面目度"],["共感力","共感力"],["貯蓄","貯蓄"],["幸福度","幸福度"],["面白さ","面白さ"]],class:"user__index__font"
+      = f.number_field :number,placeholder:"数値(0~100)",class:"user__index__name"
+      <br>
+      = f.submit '基礎能力を追加する！',class:"user__index__btn"
+      <br>
+    %h2 オリジナル能力はこちらから！
+    = form_with model: @basic,local: true do |f|
+      = f.text_field :name,placeholder:"能力名",class:"user__index__name"
+      = f.number_field :number,placeholder:"数値(0~100)",class:"user__index__name"
+      <br>
+      = f.submit 'オリジナル能力を追加する！',class:"user__index__btn"
+      <br>
+      =link_to "戻る",user_path(current_user.id),method: :get,class:"link"

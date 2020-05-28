@@ -1,0 +1,20 @@
+.header
+  .header__title
+    =link_to"Pawa-syoukai",root_path
+    - if user_signed_in?
+      .header__title__index
+        =link_to "新規作成" , user_path(current_user.id)
+      .header__title__index
+        =link_to "作った選手を見る" , specials_path
+      .header__title__index
+        =link_to "データあれこれ" , basics_path
+      .header__title__index
+        =link_to "ログアウト" , destroy_user_session_path,method: :delete
+        
+    - else
+      .header__title__index
+        =link_to "ログイン" , new_user_session_path
+      .header__title__index
+        =link_to "新規登録（まずはここから）" ,  new_user_registration_path
+      .header__title__index
+        =link_to "データあれこれ" , basics_path

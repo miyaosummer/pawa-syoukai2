@@ -1,0 +1,7 @@
+= form_with model: @basics,local: true do |f|
+ = f.select :name, [["--",""],["コミュ力","コミュ力"],["企画力","企画力"],["明るさ","明るさ"],["気遣い力","気遣い力"],["モテ力","モテ力"],["気が利く","気が利く"],["真面目度","真面目度"],["共感力","共感力"],["貯蓄","貯蓄"],["幸福度","幸福度"],["面白さ","面白さ"]]
+ = f.number_field :number
+ = f.submit '決定！'
+ 
+
+=link_to "戻る",user_path(current_user.id),method: :get,class:"link"

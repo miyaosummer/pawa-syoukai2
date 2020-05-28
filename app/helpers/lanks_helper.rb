@@ -1,0 +1,2 @@
+module LanksHelper
+end

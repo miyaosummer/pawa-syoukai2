@@ -1,0 +1,28 @@
+-@basics.each do |basic|
+  %tr
+  -if current_user.id == basic.user_id
+    .main-view__index
+      .main-view__index__ability__name
+        = basic.name
+        <br>
+        - i = basic.number
+        -if i >= 90 && i <101
+          = image_tag src="/assets/S.png", size: "100x50"
+        -elsif i >= 80 && i <90
+          = image_tag src="/assets/A.png", size: "100x50"
+        -elsif i >= 70 && i <80
+          = image_tag src="/assets/B.png", size: "100x50"
+        -elsif i >= 60 && i <70
+          = image_tag src="/assets/C.png", size: "100x50"
+        -elsif i >= 50 && i <60
+          = image_tag src="/assets/D.png", size: "100x50"
+        -elsif i >= 40 && i <50
+          = image_tag src="/assets/E.png", size: "100x50"
+        -elsif i >= 20 && i <40
+          = image_tag src="/assets/F.png", size: "100x50"
+        -elsif i >= 0 && i <20
+          = image_tag src="/assets/G.png", size: "100x50"
+        - else
+          %p ???
+      .main-view__index__ability__number
+        = basic.number
