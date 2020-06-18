@@ -15,18 +15,18 @@ ActiveRecord::Schema.define(version: 2020_05_07_063446) do
   create_table "basics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "number"
-    t.integer "user_id"
-    t.integer "basic_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_basics_on_user_id"
   end
 
   create_table "specials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.integer "special_id"
-    t.integer "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_specials_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -44,17 +44,27 @@ ActiveRecord::Schema.define(version: 2020_05_07_063446) do
   end
 
   create_table "users_basics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "basic_id"
+    t.bigint "user_id", null: false
+    t.bigint "basic_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["basic_id"], name: "index_users_basics_on_basic_id"
+    t.index ["user_id"], name: "index_users_basics_on_user_id"
   end
 
   create_table "users_specials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "special_id"
+    t.bigint "special_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["special_id"], name: "index_users_specials_on_special_id"
+    t.index ["user_id"], name: "index_users_specials_on_user_id"
   end
 
+  add_foreign_key "basics", "users"
+  add_foreign_key "specials", "users"
+  add_foreign_key "users_basics", "basics"
+  add_foreign_key "users_basics", "users"
+  add_foreign_key "users_specials", "specials"
+  add_foreign_key "users_specials", "users"
 end
