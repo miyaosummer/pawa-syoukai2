@@ -15,7 +15,8 @@
     .side-bar__specials
       %li
         =link_to "特殊能力を作る",new_special_path,class:"link"
-    %h1.count
+    %h1
+      =@basics.count
   .main-view
     .main-view__status
       .main-view__status__name
