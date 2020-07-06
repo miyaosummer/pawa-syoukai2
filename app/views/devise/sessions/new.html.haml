@@ -3,12 +3,12 @@
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .login__email
       = f.label :email,class:"login__email__label"
-      -# %br/
+      %br/
       = f.email_field :email,placeholder:"mail", autofocus: true, autocomplete: "email",class:"login__email__form"
     .login__password
       = f.label :password,class:"login__password__label"
-      -# %br/
-      = f.password_field :password,placeholder:"password", autocomplete: "current-password",class:"login__password__form"
+      %br/
+      = f.password_field :password,placeholder:"パスワード", autocomplete: "current-password",class:"login__password__form"
     -# - if devise_mapping.rememberable?
     -#   .field
     -#     = f.check_box :remember_me
