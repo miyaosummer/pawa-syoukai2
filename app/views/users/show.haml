@@ -6,35 +6,38 @@
   = flash[:delete]
 
 = render partial:'/users/header'
-.warapper
+.wrapper
   .side-bar
     入力フォーム
-    .side-bar__abilities
+    .list
       %li
-        =link_to "基礎能力を決める",new_basic_path,class:"link"
-    .side-bar__specials
+        -if @user.basics.count < 6
+          =link_to "基礎能力を決める",new_basic_path,class:"list__basic"
+        - else
+          %h1.link__notise
+            基礎能力は6つまで！
+            <br>
+            削除ボタンで削除してね
       %li
-        =link_to "特殊能力を作る",new_special_path,class:"link"
-    %h1
-      =@basics.count
+        =link_to "特殊能力を作る",new_special_path,class:"list__special"
   .main-view
-    .main-view__status
-      .main-view__status__name
+    .status
+      .status__name
         =current_user.nickname
         <br>
-        .main-view__status__name__edit
+        .status__name__edit
           =link_to "編集",edit_user_path(current_user.id),method: :get,class:"link__edit"
-      .main-view__status__image
-        = image_tag src=current_user.image, size: "200x200"
-      .main-view__index__ability
+      .status__image
+        = image_tag src=current_user.image.to_s, size: "200x200"
+      .index__ability
         = render partial:'/basics/basic',basics: @basics
-    .main-view__special
+    .special
       -@specials.each do |special|
         -if current_user.id == special.user_id
-          .main-view__special__original
+          .special__original
             =special.name
             <br>
-            =link_to "削除",special_path(special.id),method: :delete,class:"main-view__special__original__delete"
+            =link_to "削除",special_path(special.id),method: :delete,class:"special__original__delete"
         -else
 
 

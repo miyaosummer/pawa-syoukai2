@@ -1,8 +1,8 @@
 -@basics.each do |basic|
   %tr
   -if current_user.id == basic.user_id
-    .main-view__index
-      .main-view__index__ability__name
+    .index
+      .index__ability__name
         = basic.name
         <br>
         - i = basic.number
@@ -24,5 +24,5 @@
           = image_tag src="/assets/G.png", size: "100x50"
         - else
           %p ???
-      .main-view__index__ability__number
+      .index__ability__number
         = basic.number

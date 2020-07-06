@@ -1,0 +1,33 @@
+.main-view{
+  height: auto;
+  width: calc( 100% - 300px);
+  background-color: white;
+  // background-image: url('green.png');
+  padding-top: 60px;
+  text-align: center;
+  .status{
+    margin-left: 10px;
+    height: 110px;
+    display: flex;
+    &__name{
+      margin: 15px 0px;
+      width: 200px;
+      height: 80px;
+      background-color: yellow;
+      border-radius: 5px;
+      border: 3px black solid;
+      font-size: 50px;
+      padding: 0 auto;
+      &__edit{
+        margin-top: 10px;
+        font-size: 20px;
+      }
+    }
+    &__image{
+      margin-left: 10px;
+      margin-top: -40px;
+      height: 200px;
+      border: 3px black solid;
+    }
+  }
+}

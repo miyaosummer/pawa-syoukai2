@@ -13,7 +13,7 @@ class BasicsController < ApplicationController
   end
 
   def create
-    basic = Basic.create(post_params)
+    basic = Basic.new(post_params)
     if basic.save
       redirect_to user_path(current_user.id)
       flash[:success] = '基礎能力を追加しました'

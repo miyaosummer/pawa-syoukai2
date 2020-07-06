@@ -17,7 +17,7 @@ class SpecialsController < ApplicationController
       flash[:success] = '特殊能力を追加しました'
     else
       redirect_to user_path(current_user.id)
-      flash[:delete] = '特殊能力を追加できませんでした。能力・ボタンが正しく選べているか、確かめてみてね。'
+      flash[:delete] = '特殊能力を追加できませんでした。能力・ボタンが正しく選べているか、重複がないかもう一度やってみてね'
     end
   end
 

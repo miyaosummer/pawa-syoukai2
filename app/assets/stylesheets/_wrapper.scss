@@ -1,0 +1,25 @@
+.wrapper{
+  width: 1440px;
+  min-width: 750px;
+  height: 100vh;
+}
+
+html, body{
+  // overflow-x: hidden;
+}
+
+.flash{
+  background-color: lightgreen;
+  text-align: center;
+}
+
+.good{
+  background-color: lightpink;
+  text-align: center;
+}
+
+.delete{
+  background-color: navy;
+  color: white;
+  text-align: center;
+}

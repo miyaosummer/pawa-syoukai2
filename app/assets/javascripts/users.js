@@ -17,3 +17,7 @@
 // $(function(){
 //   $("#msg").css("font-size","30px");
 // });
+
+// $(function(){
+//   let length = 
+// });

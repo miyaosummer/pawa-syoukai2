@@ -1,9 +1,10 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .header{
   height: 100px;
-  width: 100%;
+  width: 1440px;
   background-color: orange;
   display: flex;
   &__title{
@@ -51,7 +52,7 @@
       margin-top: 20px;
       font-size: 20px;
     }
-    &__link{
+    &__list__basic{
       display: block;
       margin-top: 50px;
     }

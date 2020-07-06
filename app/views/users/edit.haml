@@ -3,7 +3,7 @@
     %h1 名前
     = form_with model: @user,local: true do |f|
       = f.text_field :nickname,placeholder:"name",class:"user__index__name"
-      = f.text_field :image,placeholder:"image",class:"user__index__name"
+      = f.file_field :image,placeholder:"image",class:"user__index__name"
       <br>
       = f.submit '変更！！',class:"user__index__btn"
       <br>
