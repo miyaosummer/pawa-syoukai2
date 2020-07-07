@@ -1,0 +1,78 @@
+.header{
+  height: 100px;
+  width: 1440px;
+  background-color: orange;
+  display: flex;
+  a{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+  }
+  a::after {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: yellow;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+  }
+  a:hover::after {
+    bottom: -4px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__title{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    &__new{
+      margin-left: 10px;
+    }
+    &__new:hover{
+      margin-left: 10px;
+      font-weight: bold;
+    }
+    &__show{
+      margin-left: 10px;
+    }
+    &__show:hover{
+      margin-left: 10px;
+      font-weight: bold;
+    }
+    &__index{
+      margin-left: 10px;
+    }
+    &__index:hover{
+      margin-left: 10px;
+      font-weight: bold;
+    }
+    &__sign-out{
+      margin-left: 10px;
+    }
+    &__sign-out:hover{
+      margin-left: 10px;
+      font-weight: bold;
+    }
+    &__sign-in{
+      margin-left: 10px;
+    }
+    &__sign-in:hover{
+      margin-left: 10px;
+      font-weight: bold;
+    }
+    &__sign-up{
+      margin-left: 10px;
+    }
+    &__sign-up:hover{
+      margin-left: 10px;
+      font-weight: bold;
+    }
+  }
+
+}
