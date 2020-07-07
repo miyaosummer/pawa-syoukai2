@@ -50,14 +50,6 @@
       height: 50px;
       margin: 20px auto 0px auto;
       position: relative;
-      &__submit{
-        width: 240px;
-        height: 50px;
-        color: white;
-        background-color: blue;
-        border: 3px white solid;
-        margin: 0px 0px 20px 40px;
-      }
       a{
         text-decoration: none;
         color: white;
@@ -68,6 +60,7 @@
       &__sign-up{
         position: absolute;
         margin-left: 70px;
+        top: 58px;
         transition: all 0.2s ease 0s;
         opacity: 0.7;
       }
@@ -79,6 +72,7 @@
       &__forget-pass{
         position: absolute;
         margin: 30px 0px 0px 70px;
+        top: 60px;
         transition: all 0.2s ease 0s;
         opacity: 0.7;
       }
@@ -108,3 +102,42 @@
 }
 
 
+.login__index__actions__submit {
+  display: inline-block;
+  margin: 0px 0px 20px 120px;
+  position: relative;
+  cursor: pointer;
+  padding: 0.35em 1em;
+  background: #668ad8;/*ボタン色*/
+  color: #FFF;
+  text-decoration: none;
+}
+
+.login__index__actions__submit:before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: -webkit-calc(100% - 16px);
+  width: calc(100% - 16px);
+  height: 0;
+  border: solid 8px transparent;
+  border-bottom-color: #8eacec;/*ボタン色より明るめの色に*/
+}
+
+.login__index__actions__submit:active {
+  /*押したとき*/
+  padding: 0.32em 0.9em;
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+}
+
+.login__index__actions__submit:active:before { 
+  width: -webkit-calc(100% - 12px);
+  width: calc(100% - 12px);
+}
+
+.login__index__actions__submit:active:before {
+  top:-12px;
+  border-width: 6px;
+}
