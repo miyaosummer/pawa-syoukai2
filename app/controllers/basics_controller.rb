@@ -14,12 +14,27 @@ class BasicsController < ApplicationController
 
   def create
     basic = Basic.new(post_params)
-    if basic.save
+    basic_record =Basic.find_by(name: basic.name,user_id: current_user.id)
+    binding.pry
+    if basic_record.blank?
+      if basic.save
+        redirect_to user_path(current_user.id)
+        flash[:success] = '基礎能力を追加しました'
+      else
+        redirect_to user_path(current_user.id)
+        flash[:delete] = '基礎能力を追加できませんでした。数値が100以下だったか・空欄・重複がなかったか。確かめてみてね。'
+      end
+    elsif basic_record.user_id == current_user.id
       redirect_to user_path(current_user.id)
-      flash[:success] = '基礎能力を追加しました'
+      flash[:delete] = '基礎能力を追加できませんでした。同じ名前の基礎能力は登録できません・・・。'
     else
-      redirect_to user_path(current_user.id)
-      flash[:delete] = '基礎能力を追加できませんでした。数値が100以下だったか・空欄・重複がなかったか。確かめてみてね。'
+      if basic.save
+        redirect_to user_path(current_user.id)
+        flash[:success] = '基礎能力を追加しました'
+      else
+        redirect_to user_path(current_user.id)
+        flash[:delete] = '基礎能力を追加できませんでした。数値が100以下だったか・空欄・重複がなかったか。確かめてみてね。'
+      end
     end
   end
 
