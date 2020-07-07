@@ -67,24 +67,24 @@
       }
       &__sign-up{
         position: absolute;
-        margin-left: 100px;
+        margin-left: 70px;
         transition: all 0.2s ease 0s;
         opacity: 0.7;
       }
       &__sign-up:hover{
         opacity: 1;
-        margin-left: 105px;
+        margin-left: 75px;
       }
 
       &__forget-pass{
         position: absolute;
-        margin: 30px 0px 0px 100px;
+        margin: 30px 0px 0px 70px;
         transition: all 0.2s ease 0s;
         opacity: 0.7;
       }
       &__forget-pass:hover{
         opacity: 1;
-        margin-left: 105px;
+        margin-left:75px;
       }
 
     }
