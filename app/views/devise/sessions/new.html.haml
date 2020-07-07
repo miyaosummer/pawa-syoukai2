@@ -4,10 +4,10 @@
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .login__index__email
         %i.far.fa-envelope.fa-fw
-        = f.email_field :email,placeholder:"mail", autofocus: true, autocomplete: "email",class:"login__index__email__form"
+        = f.email_field :email,placeholder:"Email", autofocus: true, autocomplete: "email",class:"login__index__email__form"
       .login__index__password
         %i.fas.fa-unlock-alt.fa-fw
-        = f.password_field :password,placeholder:"パスワード", autocomplete: "current-password",class:"login__index__password__form"
+        = f.password_field :password,placeholder:"Pass", autocomplete: "current-password",class:"login__index__password__form"
       -# - if devise_mapping.rememberable?
       -#   .field
       -#     = f.check_box :remember_me
