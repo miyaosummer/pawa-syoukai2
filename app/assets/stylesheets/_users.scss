@@ -2,23 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.header{
-  height: 100px;
-  width: 1440px;
-  background-color: orange;
-  display: flex;
-  &__title{
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-    &__index{
-      margin-left: 10px;
-    }
-    &__main{
-      margin-left: 10px;
-    }
-  }
-}
+
 
 
 .user{

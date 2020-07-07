@@ -8,27 +8,22 @@
     background-color: palegoldenrod;
     height: 100vh;
     width: 290px;
-    font-size: 40px;
+    font-size: 20px;
     padding-left: 10px;
     font-weight: bold;
     text-align: center;
-    &__name{
-      display: flex;
-      justify-content: space-between;
-    }
-    &__abilities{
-      display: flex;
-      justify-content: space-between;
-    }
-    &__specials{
-      display: flex;
-      justify-content: space-between;
-    }
       li{
         list-style:none;
         .list__basic{
           margin-left: 10px;
-          font-size: 30px;
+          font-size: 20px;
+          text-decoration: none;
+          color: blue;
+          font-weight: bold;
+        }
+        .list__special{
+          margin-left: 10px;
+          font-size: 20px;
           text-decoration: none;
           color: blue;
           font-weight: bold;

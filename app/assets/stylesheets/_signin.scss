@@ -1,0 +1,110 @@
+.login{
+  width: 100%;
+  height: 100vh;
+  background-image: url("sea.jpg");
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  &__index{
+    h2{
+      text-align: center;
+      padding-top: 10px;
+      font-size: 20px;
+      color: white;
+    }
+    height: 330px;
+    width: 400px;
+    margin: 10% auto;
+    background-color:rgba(128,128,128,0.7);
+    box-shadow: 1px 1px 1px 1px 0.7 gray;
+    &__email{
+      padding-left: 5px;
+      margin: 0 auto;
+      width: 70%;
+      line-height: 40px;
+      margin-top: 10px;
+      background-color: white;
+      border: 2px black solid;
+      &__form{
+        width: 90%;
+        border: none;
+        outline: none;
+      }
+    }
+    &__password{
+      padding-left: 5px;
+      margin: 0 auto;
+      width: 70%;
+      line-height: 40px;
+      margin-top: 10px;
+      background-color: white;
+      border: 2px black solid;
+      &__form{
+        border: none;
+        outline: none;
+      }
+    }
+    &__actions{
+      width: 80%;
+      height: 50px;
+      margin: 20px auto 0px auto;
+      position: relative;
+      &__submit{
+        width: 240px;
+        height: 50px;
+        color: white;
+        background-color: blue;
+        border: 3px white solid;
+        margin: 0px 0px 20px 40px;
+      }
+      a{
+        text-decoration: none;
+        color: white;
+      }
+      i{
+        color: white;
+      }
+      &__sign-up{
+        position: absolute;
+        margin-left: 70px;
+        transition: all 0.2s ease 0s;
+        opacity: 0.7;
+      }
+      &__sign-up:hover{
+        opacity: 1;
+        margin-left: 75px;
+      }
+
+      &__forget-pass{
+        position: absolute;
+        margin: 30px 0px 0px 70px;
+        transition: all 0.2s ease 0s;
+        opacity: 0.7;
+      }
+      &__forget-pass:hover{
+        opacity: 1;
+        margin-left:75px;
+      }
+
+    }
+  }
+}
+.login:before{
+  content: '';
+  background: inherit;/*.bgImageで設定した背景画像を継承する*/
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  position: absolute;
+  /*ブラー効果で画像の端がボヤけた分だけ位置を調整*/
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+}
+
+
