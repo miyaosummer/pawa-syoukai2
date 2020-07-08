@@ -1,8 +1,16 @@
 .header{
-  height: 100px;
-  width: 1440px;
-  background-color: orange;
+  height: 60px;
+  width: 1420px;
+  // background-color: orange;
   display: flex;
+  position: relative;
+  padding: 0.2em 0.5em;
+  background: -webkit-linear-gradient(to right, rgb(255, 124, 111), #ffc994);
+  background: linear-gradient(to right, rgb(255, 124, 111), #ffc994);
+  border-radius: 32px 0 0 0 ;
+  color: white;
+  font-weight: lighter;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.56);
   a{
     position: relative;
     display: inline-block;
@@ -30,47 +38,48 @@
   &__title{
     display: flex;
     align-items: center;
-    margin-left: 10px;
+    margin-left: 20px;
+    font-size: 20px;
     &__new{
-      margin-left: 10px;
+      margin-left: 20px;
     }
     &__new:hover{
-      margin-left: 10px;
+      margin-left: 20px;
       font-weight: bold;
     }
     &__show{
-      margin-left: 10px;
+      margin-left: 20px;
     }
     &__show:hover{
-      margin-left: 10px;
+      margin-left: 20px;
       font-weight: bold;
     }
     &__index{
-      margin-left: 10px;
+      margin-left: 20px;
     }
     &__index:hover{
-      margin-left: 10px;
+      margin-left: 20px;
       font-weight: bold;
     }
     &__sign-out{
-      margin-left: 10px;
+      margin-left: 20px;
     }
     &__sign-out:hover{
-      margin-left: 10px;
+      margin-left: 20px;
       font-weight: bold;
     }
     &__sign-in{
-      margin-left: 10px;
+      margin-left: 20px;
     }
     &__sign-in:hover{
-      margin-left: 10px;
+      margin-left: 20px;
       font-weight: bold;
     }
     &__sign-up{
-      margin-left: 10px;
+      margin-left: 20px;
     }
     &__sign-up:hover{
-      margin-left: 10px;
+      margin-left: 20px;
       font-weight: bold;
     }
   }

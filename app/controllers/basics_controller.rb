@@ -15,7 +15,6 @@ class BasicsController < ApplicationController
   def create
     basic = Basic.new(post_params)
     basic_record =Basic.find_by(name: basic.name,user_id: current_user.id)
-    binding.pry
     if basic_record.blank?
       if basic.save
         redirect_to user_path(current_user.id)
