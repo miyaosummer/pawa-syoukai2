@@ -1,29 +1,29 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
-  .field
-    = f.label :image
-    %br/
-    = f.file_field :image, autofocus: true, autocomplete: "image"
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.signup
+  .signup__index
+    %h1 Sign up
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .signup__index__name
+        %i.fas.fa-user.fa-fw
+        = f.text_field :nickname,placeholder:"Nickname",autofocus: true, autocomplete: "nickname",class:"signup__index__name__form"
+      .signup__index__image
+        %i.fas.fa-camera-retro.fa-fw
+        = f.file_field :image, autofocus: true, autocomplete: "image",class:"signup__index__image__form"
+      .signup__index__view
+      .signup__index__email
+        %i.far.fa-envelope.fa-fw
+        = f.email_field :email,placeholder:"Email",autofocus: true, autocomplete: "email",class:"signup__index__email__form"
+      .signup__index__password
+        - if @minimum_password_length
+          -# %em
+          -#   (#{@minimum_password_length} characters minimum)
+        -# %br/
+        %i.fas.fa-unlock-alt.fa-fw
+        = f.password_field :password, placeholder:"パスワード（６文字以上）",autocomplete: "new-password",class:"signup__index__password__form"
+      .signup__index__passwordcheck
+        %i.fas.fa-unlock-alt.fa-fw
+        = f.password_field :password_confirmation,placeholder:"確認用：同じパスワード", autocomplete: "new-password",class:"signup__index__passwordcheck__form"
+      .signup__index__actions
+        = f.submit "SEND",class:"signup__index__actions__submit"
+        <br>
+        = render "devise/shared/links"
