@@ -198,33 +198,23 @@
 }
 
 .signup__index__actions__submit:before {
-  content: "";
-  position: absolute;
-  top: -16px;
-  left: 0;
-  width: -webkit-calc(100% - 16px);
-  width: calc(100% - 16px);
-  height: 0;
-  border: solid 8px transparent;
-  border-bottom-color: #8eacec;/*ボタン色より明るめの色に*/
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  margin:0px 0px 10px 90px;
 }
 
 .signup__index__actions__submit:active {
-  /*押したとき*/
-  padding: 0.32em 0.9em;
-  -webkit-transform: translateY(-2px);
-  transform: translateY(-2px);
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
 }
 
-.signup__index__actions__submit:active:before { 
-  width: -webkit-calc(100% - 12px);
-  width: calc(100% - 12px);
-}
 
-.signup__index__actions__submit:active:before {
-  top:-12px;
-  border-width: 6px;
-}
 
 .img{
   // position: absolute;

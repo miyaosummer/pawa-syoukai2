@@ -1,28 +1,45 @@
-.login{
+.forget{
   width: 100%;
   height: 100vh;
-  background-image: url("sea.jpg");
+  padding-bottom:50px;
+  background-image: url("forget.jpg");
   background-size: cover;
   position: relative;
   z-index: 0;
   overflow: hidden;
   &__index{
-    h2{
-      text-align: center;
-      padding-top: 10px;
-      font-size: 20px;
-      color: white;
-    }
-    height: 330px;
+    height: auto;
     width: 400px;
     margin: 5% auto;
+    padding-bottom: 20px;
     background-color:rgba(128,128,128,0.7);
-    box-shadow: 1px 1px 1px 1px 0.7 gray;
+
+    h1{
+      text-align: center;
+      line-height: 60px;
+      font-size: 20px;
+      color: white;
+      font-weight: bold;
+      border-bottom: 1px solid black;
+    }
+    h2{
+      color: white;
+      font-size: 14px;
+    }
+    ul{
+      color: white;
+      font-size: 12px;
+    }
+
+
     &__email{
       padding-left: 5px;
+      display: flex;
+      justify-content: left;
+      align-items: center;
       margin: 0 auto;
-      width: 70%;
-      line-height: 40px;
+      width: 80%;
+      height: 40px;
       margin-top: 10px;
       background-color: white;
       border: 2px black solid;
@@ -32,24 +49,17 @@
         outline: none;
       }
     }
-    &__password{
-      padding-left: 5px;
-      margin: 0 auto;
-      width: 70%;
-      line-height: 40px;
-      margin-top: 10px;
-      background-color: white;
-      border: 2px black solid;
-      &__form{
-        border: none;
-        outline: none;
-      }
-    }
+
     &__actions{
-      width: 80%;
+      width: 100%;
       height: 50px;
-      margin: 20px auto 0px auto;
+      margin-top: 20px;
       position: relative;
+    }
+    &__notise{
+      opacity: 0.7;
+      margin: 10px 0px 0px 115px;
+      transition: all 0.2s ease 0s;
       a{
         text-decoration: none;
         color: white;
@@ -57,34 +67,15 @@
       i{
         color: white;
       }
-      &__sign-up{
-        position: absolute;
-        margin-left: 70px;
-        top: 58px;
-        transition: all 0.2s ease 0s;
-        opacity: 0.7;
-      }
-      &__sign-up:hover{
-        opacity: 1;
-        margin-left: 75px;
-      }
+    }
 
-      &__forget-pass{
-        position: absolute;
-        margin: 30px 0px 0px 70px;
-        top: 60px;
-        transition: all 0.2s ease 0s;
-        opacity: 0.7;
-      }
-      &__forget-pass:hover{
-        opacity: 1;
-        margin-left:75px;
-      }
-
+    &__notise:hover{
+      opacity: 1;
+      margin-left: 120px;
     }
   }
 }
-.login:before{
+.forget:before{
   content: '';
   background: inherit;/*.bgImageで設定した背景画像を継承する*/
   -webkit-filter: blur(5px);
@@ -102,7 +93,7 @@
 }
 
 
-.login__index__actions__submit {
+.forget__index__actions__submit {
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
@@ -110,13 +101,12 @@
   color: #FFF;
   border-bottom: solid 4px #627295;
   border-radius: 3px;
-  margin:0px 0px 10px 120px;
+  margin:0px 0px 10px 90px;
 }
 
 
-.login__index__actions__submit:active {
+.forget__index__actions__submit:active {
   -webkit-transform: translateY(4px);
   transform: translateY(4px);/*下に動く*/
   border-bottom: none;/*線を消す*/
 }
-
