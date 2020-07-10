@@ -10,31 +10,39 @@ class BasicsController < ApplicationController
 
   def new
     @basic = Basic.new
+    @basics = Basic.all
   end
 
   def create
     basic = Basic.new(post_params)
     basic_record =Basic.find_by(name: basic.name,user_id: current_user.id)
-    if basic_record.blank?
-      if basic.save
-        redirect_to user_path(current_user.id)
-        flash[:success] = '基礎能力を追加しました'
+    user = User.find(current_user.id)
+    if user.basics.count < 6
+      if basic_record.blank?
+        if basic.save
+          redirect_to new_basic_path
+          flash[:success] = "基礎能力「#{basic.name}」を追加しました"
+        else
+          redirect_to new_basic_path
+          flash[:delete] = '基礎能力を追加できませんでした。数値が100以下だったか・空欄・重複がなかったか。確かめてみてね。'
+        end
+      elsif basic_record.user_id == current_user.id
+        redirect_to new_basic_path
+        flash[:delete] = '基礎能力を追加できませんでした。同じ名前の基礎能力は登録できません・・・。'
       else
-        redirect_to user_path(current_user.id)
-        flash[:delete] = '基礎能力を追加できませんでした。数値が100以下だったか・空欄・重複がなかったか。確かめてみてね。'
+        if basic.save
+          redirect_to new_basic_path
+          flash[:success] = "基礎能力「#{basic.name}」を追加しました"
+        else
+          redirect_to new_basic_path
+          flash[:delete] = '基礎能力を追加できませんでした。数値が100以下だったか・空欄・重複がなかったか。確かめてみてね。'
+        end
       end
-    elsif basic_record.user_id == current_user.id
-      redirect_to user_path(current_user.id)
-      flash[:delete] = '基礎能力を追加できませんでした。同じ名前の基礎能力は登録できません・・・。'
     else
-      if basic.save
-        redirect_to user_path(current_user.id)
-        flash[:success] = '基礎能力を追加しました'
-      else
-        redirect_to user_path(current_user.id)
-        flash[:delete] = '基礎能力を追加できませんでした。数値が100以下だったか・空欄・重複がなかったか。確かめてみてね。'
-      end
+      redirect_to new_basic_path
+      flash[:delete] = '基礎能力を追加できませんでした。登録できる基礎能力は6つまでです。どれかを削除してから再登録してください'
     end
+
   end
 
   def update
@@ -51,9 +59,21 @@ class BasicsController < ApplicationController
 
   def destroy
     @basics = Basic.find(params[:id])
-    @basics.destroy
-    redirect_to user_path(current_user.id)
-    flash[:delete] = '基礎能力を削除しました'
+    path = Rails.application.routes.recognize_path(request.referer)
+    if path[:controller] == "users" && path[:action] == "show"
+      @basics.destroy
+      redirect_to user_path(current_user.id)
+      flash[:delete] = "基礎能力「#{@basics.name}」を削除しました"
+    else
+      @basics.destroy
+      redirect_to new_basic_path
+      flash[:delete] = "基礎能力「#{@basics.name}」を削除しました"
+    end
+
+  end
+
+  def show
+    @basics = Basic.find(params[:id])
   end
 
   private

@@ -1,0 +1,209 @@
+.basic{
+  width: 100%;
+  min-width: 750px;
+  height: 100vh;
+  padding:20px 0px 50px 0px;
+  background-image: url('bridge.jpg');
+  text-align: center;
+  z-index: 0;
+  overflow: hidden;
+  position: relative;
+  h1{
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom:20px;
+    color: #364e96;/*文字色*/
+    padding: 0.1em 1em;/*上下の余白*/
+    border-top: solid 3px #364e96;/*上線*/
+    border-bottom: solid 3px #364e96;/*下線*/
+  }
+  &__index{
+    display: flex;
+    justify-content: center;
+    min-width: 750px;
+    &__basic-ability{
+      background-image: url('green.png');
+      filter:drop-shadow(5px 5px 5px black);
+      margin-right: 30px;
+      width: 40%;
+      min-width: 320px;
+      h2{
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 60px;
+        border-bottom:1px solid black ;
+      }
+      #basic_name{
+        width: 300px;
+        height: 40px;
+        margin-top: 20px;
+        // border: none;
+      }
+      &__number{
+        width: 300px;
+        height: 40px;
+        margin-top: 20px;
+        // border: none;
+      }
+
+      &__btn{
+        display: inline-block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        background: red;/*ボタン色*/
+        color: #FFF;
+        border-bottom: solid 2px #627295;
+        border-radius: 3px;
+        margin:20px 0px;
+      }
+      &__btn:active{
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);/*下に動く*/
+        border-bottom: none;/*線を消す*/
+      }
+
+    }
+    &__original-ability{
+      background-image: url('orange.png');
+      filter:drop-shadow(5px 5px 5px black);
+      width: 40%;
+      min-width: 320px;
+      h2{
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 60px;
+        border-bottom:1px solid black ;
+      }
+      &__name{
+        width: 300px;
+        height: 40px;
+        margin-top: 20px;
+        // border: none;
+      }
+      &__number{
+        width: 300px;
+        height: 40px;
+        margin-top: 20px;
+        // border: none;
+      }
+      &__btn{
+        display: inline-block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        background: red;/*ボタン色*/
+        color: #FFF;
+        border-bottom: solid 2px #627295;
+        border-radius: 3px;
+        margin:20px 0px;
+      }
+      &__btn:active{
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);/*下に動く*/
+        border-bottom: none;/*線を消す*/
+      }
+    }
+  }
+}
+
+
+.back-link{
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  margin:50px 0px;
+}
+.back-link:active{
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.basic:before{
+  content: '';
+  background: inherit;/*.bgImageで設定した背景画像を継承する*/
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  position: absolute;
+  /*ブラー効果で画像の端がボヤけた分だけ位置を調整*/
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+}
+
+.index{
+  max-width: 800px;
+  height: 130px;
+  margin-top: -5px;
+  display: inline;
+  &__ability{
+    display: flex;
+    height: 150px;
+    max-width: 696px;
+    &__name{
+      width: 100px;
+      height: 100px;
+      margin-top: 10px;
+      margin-left: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      border:3px black solid;
+      background-color: white;
+      img{
+        margin-top: -5px;
+      }
+    }
+    &__number{
+      margin-top: -45px;
+      margin-left: 10px;
+      font-weight: bold;
+      font-size: 30px;
+      text-shadow: 1px 1px 2px silver;
+    }
+    &__edit{
+      padding-left: 10px;
+    }
+  }
+}
+
+.link__edit{
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 5px;
+  padding: 2px;
+  font-size: 12px;
+  background: #668ad8;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+.link__edit:active{
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.form{
+  max-width: 707px;
+  height: 200px;
+  background-color: white;
+  margin: 50px auto 0px;
+  padding-top: 5px;
+  h3{
+    font-size: 15px;
+    font-weight: bold;
+    // margin:10px 0px;
+    color: #364e96;/*文字色*/
+    padding: 0.1em 1em;/*上下の余白*/
+    border-top: solid 2px #364e96;/*上線*/
+    border-bottom: solid 2px #364e96;/*下線*/
+  }
+}
