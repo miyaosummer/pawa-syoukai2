@@ -9,13 +9,13 @@ class BasicsController < ApplicationController
   end
 
   def new
-    @basic = Basic.new
+    @basics = Form::BasicCollection.new
   end
 
   def create
-    basic = Basic.new(post_params)
-    basic_record =Basic.find_by(name: basic.name,user_id: current_user.id)
-    if basic_record.blank?
+    basic = Form::BasicCollection.new(post_params)
+    # basic_record =Basic.find_by(name: basic.name,user_id: current_user.id)
+    if basic.blank?
       if basic.save
         redirect_to user_path(current_user.id)
         flash[:success] = '基礎能力を追加しました'
@@ -23,7 +23,7 @@ class BasicsController < ApplicationController
         redirect_to user_path(current_user.id)
         flash[:delete] = '基礎能力を追加できませんでした。数値が100以下だったか・空欄・重複がなかったか。確かめてみてね。'
       end
-    elsif basic_record.user_id == current_user.id
+    elsif basic
       redirect_to user_path(current_user.id)
       flash[:delete] = '基礎能力を追加できませんでした。同じ名前の基礎能力は登録できません・・・。'
     else
@@ -58,7 +58,7 @@ class BasicsController < ApplicationController
 
   private
   def post_params
-    params.require(:basic).permit(:name,:number).merge(user_id: current_user.id)
+    params.require(:form_basic_collection).permit(basics_attributes: :name, basics_attributes: :number)
   end
 
 end
