@@ -21,7 +21,7 @@ class BasicsController < ApplicationController
       if basic_record.blank?
         if basic.save
           redirect_to new_basic_path
-          flash[:success] = '基礎能力を追加しました'
+          flash[:success] = "基礎能力「#{basic.name}」を追加しました"
         else
           redirect_to new_basic_path
           flash[:delete] = '基礎能力を追加できませんでした。数値が100以下だったか・空欄・重複がなかったか。確かめてみてね。'
@@ -32,7 +32,7 @@ class BasicsController < ApplicationController
       else
         if basic.save
           redirect_to new_basic_path
-          flash[:success] = '基礎能力を追加しました'
+          flash[:success] = "基礎能力「#{basic.name}」を追加しました"
         else
           redirect_to new_basic_path
           flash[:delete] = '基礎能力を追加できませんでした。数値が100以下だったか・空欄・重複がなかったか。確かめてみてね。'
@@ -59,9 +59,17 @@ class BasicsController < ApplicationController
 
   def destroy
     @basics = Basic.find(params[:id])
-    @basics.destroy
-    redirect_to user_path(current_user.id)
-    flash[:delete] = '基礎能力を削除しました'
+    path = Rails.application.routes.recognize_path(request.referer)
+    if path[:controller] == "users" && path[:action] == "show"
+      @basics.destroy
+      redirect_to user_path(current_user.id)
+      flash[:delete] = "基礎能力「#{@basics.name}」を削除しました"
+    else
+      @basics.destroy
+      redirect_to new_basic_path
+      flash[:delete] = "基礎能力「#{@basics.name}」を削除しました"
+    end
+
   end
 
   def show

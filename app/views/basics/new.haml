@@ -24,7 +24,9 @@
         <br>
         = f.submit 'オリジナル能力を追加する！',class:"basic__index__original-ability__btn"
         <br>
-  =link_to "作成画面に戻る",user_path(current_user.id),method: :get,class:"back-link"
   .form
+    %h3
+      プレビュー
     .index__ability
       = render'/basics/basic'
+  =link_to "作成画面に戻る",user_path(current_user.id),method: :get,class:"back-link"
