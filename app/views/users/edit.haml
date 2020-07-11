@@ -1,10 +1,26 @@
 .user
   .user__index
-    %h1 名前
+    %h1 ユーザー情報の変更
     = form_with model: @user,local: true do |f|
-      = f.text_field :nickname,placeholder:"name",class:"user__index__name"
-      = f.file_field :image,placeholder:"image",class:"user__index__name"
+      .user__index__name
+        %i.fas.fa-user.fa-fw
+        = f.text_field :nickname,placeholder:"Name",class:"user__index__name__form"
+      .user__index__image
+        %i.fas.fa-camera-retro.fa-fw
+        = f.file_field :image,placeholder:"image",class:"user__index__image__form"
+      -if @user.image
+        .user__index__view
+          %h3
+            <現在の画像>
+          =image_tag"#{@user.image.url}",class:".user__index__view__img"
+          <br>
+          %i.user__index__view__arrow.fas.fa-arrow-down
+          %i.user__index__view.fas.fa-arrow-down
+          %i.user__index__view__icon.fas.fa-arrow-down
+        .user__index__preview
+
+
+      .user__index__btn
+        = f.submit '変更！！'
       <br>
-      = f.submit '変更！！',class:"user__index__btn"
-      <br>
-      =link_to "作成画面に戻る",user_path(current_user.id),method: :get,class:"user__index__link"
+  =link_to "作成画面に戻る",user_path(current_user.id),method: :get,class:"user__back"

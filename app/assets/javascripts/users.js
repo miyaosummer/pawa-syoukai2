@@ -1,23 +1,24 @@
-// $("button").on("click", function() {
-//   $(".popup")
-//     .addClass("show")
-//     .fadeIn();
-//   // return false;
-// });
+$(function() {
+  $('.user__index__preview').after('<span class= "preview"></span>');
 
-// $("#close").on("click", function() {
-//   $(".popup").fadeOut();
-//   // return false;
-// });
+  // アップロードするファイルを選択
+  $('input[type=file]').change(function() {
+    var file = $(this).prop('files')[0];
 
-// $(function(){
-//   console.log("OK");
-// });
+    // 画像以外は処理を停止
+    if (! file.type.match('image.*')) {
+      // クリア
+      $(this).val('');
+      $('span').html('');
+      return;
+    }
 
-// $(function(){
-//   $("#msg").css("font-size","30px");
-// });
-
-// $(function(){
-//   let length = 
-// });
+    // 画像表示
+    var reader = new FileReader();
+    reader.onload = function() {
+      var img_src = $('<img class="img">').attr('src', reader.result);
+      $('span').html(img_src);
+    }
+    reader.readAsDataURL(file);
+  });
+});

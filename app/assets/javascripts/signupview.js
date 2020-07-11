@@ -1,6 +1,6 @@
 
 $(function() {
-  $('.signup__index__view').after('<span class= "preview"></span>');
+  $('.signup__index__view').after('<span class= "signup__index__view__preview"></span>');
 
   // アップロードするファイルを選択
   $('input[type=file]').change(function() {
@@ -17,7 +17,7 @@ $(function() {
     // 画像表示
     var reader = new FileReader();
     reader.onload = function() {
-      var img_src = $('<img class="img">').attr('src', reader.result);
+      var img_src = $('<img class="signup__index__view__preview__img">').attr('src', reader.result);
       $('span').html(img_src);
     }
     reader.readAsDataURL(file);
