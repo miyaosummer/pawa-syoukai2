@@ -5,10 +5,6 @@ class UsersController < ApplicationController
   def index
   end
 
-  def new
-    @user = User.new
-  end
-
   def create
     User.create(post_params)
     redirect_to user_path(current_user.id)
