@@ -1,45 +1,24 @@
-.special
-  %h1 特殊能力を選ぼう
-  = form_with model: @special, local: true do |form|
-    .special__name
-      = form.radio_button :name,"対ピンチ○",class:"special__name__select"
-      %span{:title => "対ピンチ○\nピンチの時に自分の力を発揮しやすい。"} 対ピンチ○
-      = form.radio_button :name, "対変な人○" 
-      %span{:title => "対変な人\n敬遠されがちな変な人と仲良くできる。"} 対変な人○
-      = form.radio_button :name, "ムードメーカー" 
-      %span{:title => "ムードメーカー\n職場に一人はいて欲しい、周囲の雰囲気をよくできる人"} ムードメーカー
-      = form.radio_button :name, "満員電車○" 
-      %span{:title => "満員電車○\n満員電車への耐性がある。"} 満員電車○
-      = form.radio_button :name, "集中力" 
-      %span{:title => "集中力\nすぐに集中することができる。"} 集中力
-      = form.radio_button :name, "調子安定" 
-      %span{:title => "調子安定\n飲み会後や失恋した次の日など、調子が出にくい時でも頑張れる。"} 調子安定
-      = form.radio_button :name, "多趣味" 
-      %span{:title => "多趣味\n趣味が多い。"} 多趣味
-      = form.radio_button :name, "家計管理○" 
-      %span{:title => "家計管理○\n家計のやりくりが上手。FPの資格とか持ってる。"} 家計管理○
-      = form.radio_button :name, "コミュニケーション○" 
-      %span{:title => "コミュニケーション○\n周囲の人とより良い関係づくりができる。"} コミュニケーション○
-      <br>
-      = form.submit '特殊能力を追加する！'
-      <br>
-  = form_with model: @special, local: true do |form|
-    .special__edit
-      オリジナル能力はこちらから！
-      <br>
-      = form.text_field :name
-      <br>
-      = form.submit 'オリジナル特殊能力を追加する！'
-      <br>
-      =link_to "戻る",user_path(current_user.id),method: :get,class:"link"
+.new-special
+  %h1 Special Ability Form
+  .new-special__index
+    .new-special__index__special-ability
+      %h2 特殊能力を選ぼう！
+      = form_with model: @special, local: true do |f|
+        = f.select :name, [["能力を選んでね。",""],["対ピンチ○","対ピンチ○"],["対変な人○","対変な人○"],["ムードメーカー","ムードメーカー"],["満員電車○","満員電車○"],["集中力","集中力"],["気が利く","気が利く"],["調子安定","調子安定"],["多趣味","多趣味"],["家計管理○","家計管理○"],["コミュニケーション○","コミュニケーション○"],["月曜日○","月曜日○"]],class:"new-special__index__special-ability__form"
+        <br>
+        = f.submit '特殊能力を追加する！',class:"new-special__index__special-ability__btn"
+    .new-special__index__original-ability
+      %h2 オリジナル能力はこちらから！
+      = form_with model: @special, local: true do |f|
+        = f.text_field :name,id: "original-name",class:"new-special__index__original-ability__form"
+        <br>
+        = f.submit 'オリジナル特殊能力を追加する！',class:"new-special__index__original-ability__btn"
+        <br>
+  .new-special__form
+    %h3
+      プレビュー
+    .new-special__form__index
+      = render'/specials/special'
+  =link_to "戻る",user_path(current_user.id),method: :get,class:"back-link"
 
 
-
--# <追加実装　赤特殊能力>
--# = form_with model: @abis, local: true do |form|
--#   = form.radio_button :abi, "コミュニケーション×" 
--#   コミュニケーション×
--#   = form.submit
-
--# <追加実装　選択した能力を表示する>
--# 選択した能力

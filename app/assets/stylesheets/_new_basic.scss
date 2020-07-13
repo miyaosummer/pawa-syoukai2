@@ -103,6 +103,22 @@
       }
     }
   }
+  &__form{
+    max-width: 707px;
+    height: 200px;
+    background-color: white;
+    margin: 50px auto 0px;
+    padding-top: 5px;
+    h3{
+      font-size: 15px;
+      font-weight: bold;
+      // margin:10px 0px;
+      color: #364e96;/*文字色*/
+      padding: 0.1em 1em;/*上下の余白*/
+      border-top: solid 2px #364e96;/*上線*/
+      border-bottom: solid 2px #364e96;/*下線*/
+    }
+  }
 }
 
 
@@ -178,32 +194,11 @@
   display: inline-block;
   text-decoration: none;
   margin-top: 5px;
-  padding: 2px;
+  padding: 2px 5px;
   font-size: 12px;
   background: #668ad8;/*ボタン色*/
   color: #FFF;
-  border-bottom: solid 4px #627295;
   border-radius: 3px;
 }
-.link__edit:active{
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
-}
 
-.form{
-  max-width: 707px;
-  height: 200px;
-  background-color: white;
-  margin: 50px auto 0px;
-  padding-top: 5px;
-  h3{
-    font-size: 15px;
-    font-weight: bold;
-    // margin:10px 0px;
-    color: #364e96;/*文字色*/
-    padding: 0.1em 1em;/*上下の余白*/
-    border-top: solid 2px #364e96;/*上線*/
-    border-bottom: solid 2px #364e96;/*下線*/
-  }
-}
+
