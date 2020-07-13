@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   mount_uploader :image, ImagesUploader
   has_many :basics
-  has_many :specials, through: :users_spesials
+  has_many :specials
 end

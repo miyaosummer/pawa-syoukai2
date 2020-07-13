@@ -4,8 +4,9 @@
 
 .user{
   width: 100%;
+  min-height: 100vh;
   height: auto;
-  padding-bottom: 150px;
+  padding-bottom: 50px;
   background-image: url("house.jpg");
   position: relative;
   z-index: 0;
