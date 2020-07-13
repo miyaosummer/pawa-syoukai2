@@ -8,6 +8,8 @@ class SpecialsController < ApplicationController
 
   def new
     @special = Special.new
+    @specials = Special.all
+
   end
 
   def create

@@ -1,0 +1,7 @@
+-@specials.each do |special|
+  -if current_user.id == special.user_id
+    .special__original
+      =special.name
+      <br>
+      =link_to "削除",special_path(special.id),method: :delete,class:"special__original__delete"
+  -else
