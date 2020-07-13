@@ -1,3 +1,7 @@
+.flash
+  = flash[:success]
+.delete
+  = flash[:delete]
 .new-special
   %h1 Special Ability Form
   .new-special__index
@@ -10,7 +14,7 @@
     .new-special__index__original-ability
       %h2 オリジナル能力はこちらから！
       = form_with model: @special, local: true do |f|
-        = f.text_field :name,id: "original-name",class:"new-special__index__original-ability__form"
+        = f.text_field :name,placeholder:"10文字以内で作ってね",id: "original-name",class:"new-special__index__original-ability__form"
         <br>
         = f.submit 'オリジナル特殊能力を追加する！',class:"new-special__index__original-ability__btn"
         <br>
