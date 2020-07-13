@@ -1,19 +1,19 @@
 = render partial:'/users/header'
-
-.wrapper
-  .main-view
-    .status
-      .status__name
-        =current_user.nickname
-        <br>
-      .status__image
-        = image_tag src=current_user.image.to_s, size: "200x200"
-      .index__ability
-        = render partial:'/basics/show',basic: @basics
-    .special
-      -@specials.each do |special|
-        -if current_user.id == special.user_id
-          .special__original
-            =special.name
-        -else
+.center-format
+  .wrapper
+    .main-view
+      .status
+        .status__name
+          =current_user.nickname
+          <br>
+        .status__image
+          = image_tag src=current_user.image.to_s, size: "200x200"
+        .index__ability
+          = render partial:'/basics/show',basic: @basics
+      .special
+        -@specials.each do |special|
+          -if current_user.id == special.user_id
+            .special__original
+              =special.name
+          -else
 
