@@ -47,13 +47,19 @@ class BasicsController < ApplicationController
 
   def update
     @basics = Basic.find(params[:id])
-    @basics.update(post_params)
-    if @basics.save
-      redirect_to user_path(current_user.id)
-      flash[:success] = '基礎能力を更新しました'
+    check_params = Basic.new(post_params)
+    basic_record = Basic.find_by(name: check_params.name,user_id: current_user.id)
+    if basic_record.blank?
+      if @basics.update(post_params)
+        redirect_to user_path(current_user.id)
+        flash[:success] = "基礎能力「#{@basics.name}」を更新しました"
+      else
+        redirect_to user_path(current_user.id)
+        flash[:delete] = '基礎能力を更新できませんでした。文字数が6以下・数値が100以下だったか・空欄がなかったか、確かめてみてね。'
+      end
     else
       redirect_to user_path(current_user.id)
-      flash[:delete] = '基礎能力を更新できませんでした。数値が100以下だったか・空欄・重複がなかったか。確かめてみてね。'
+      flash[:delete] = '基礎能力を更新できませんでした。同じ名前の基礎能力は登録できません・・・。'
     end
   end
 
