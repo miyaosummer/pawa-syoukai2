@@ -6,6 +6,7 @@ class BasicsController < ApplicationController
 
   def edit
     @basics = Basic.find(params[:id])
+    @@basics = Basic.find(params[:id])
   end
 
   def new
@@ -48,14 +49,31 @@ class BasicsController < ApplicationController
   def update
     @basics = Basic.find(params[:id])
     check_params = Basic.new(post_params)
-    basic_record = Basic.find_by(name: check_params.name,user_id: current_user.id)
-    if basic_record.blank?
-      if @basics.update(post_params)
+    basic_record = Basic.where(name: check_params.name,user_id: current_user.id) #存在しない（blank?=true) ＝同一ユーザー内で変更後の基礎能力名はまだ存在していない
+    binding.pry
+    if basic_record.count == 0 #同一ユーザー内で変更後の基礎能力名が存在していない時
+      if @basics.number == check_params.number#変更前後で数値が変わっていなければ
         redirect_to user_path(current_user.id)
-        flash[:success] = "基礎能力「#{@basics.name}」を更新しました"
       else
+        if @basics.update(post_params)#値を更新できるか判断する。できた場合
+          redirect_to user_path(current_user.id)
+          flash[:success] = "基礎能力「#{@basics.name}」の数値を#{@@basics.number}から#{check_params.number}に変更しました。"
+        else#値を更新できるか判断する。できなかった場合。
+          redirect_to user_path(current_user.id)
+          flash[:delete] = '基礎能力を更新できませんでした。数値が100以下だったか・空欄ではなかったか、確かめてみてね。'#文字数・数値の範囲で弾かれていることが想定される。
+        end
+      end#同一ユーザー内に変更後の基礎能力が自分含め存在しているが、１つしか存在していない（自分しかいない）場合
+    elsif basic_record.count == 1
+      if @basics.number == check_params.number
         redirect_to user_path(current_user.id)
-        flash[:delete] = '基礎能力を更新できませんでした。文字数が6以下・数値が100以下だったか・空欄がなかったか、確かめてみてね。'
+      else
+        if @basics.update(post_params)#値を更新できるか判断する。できた場合
+          redirect_to user_path(current_user.id)
+          flash[:success] = "基礎能力「#{@basics.name}」の数値を#{@@basics.number}から#{check_params.number}に変更しました。"
+        else#値を更新できるか判断する。できなかった場合。
+          redirect_to user_path(current_user.id)
+          flash[:delete] = '基礎能力を更新できませんでした。数値が100以下だったか・空欄ではなかったか、確かめてみてね。'#文字数・数値の範囲で弾かれていることが想定される。
+        end
       end
     else
       redirect_to user_path(current_user.id)
@@ -66,6 +84,7 @@ class BasicsController < ApplicationController
   def destroy
     @basics = Basic.find(params[:id])
     path = Rails.application.routes.recognize_path(request.referer)
+    
     if path[:controller] == "users" && path[:action] == "show"
       @basics.destroy
       redirect_to user_path(current_user.id)
