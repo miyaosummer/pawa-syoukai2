@@ -2,12 +2,6 @@ class BasicsController < ApplicationController
 
   def index
   end
-  
-
-  def edit
-    @basics = Basic.find(params[:id])
-    @@basic_before = Basic.find(params[:id])
-  end
 
   def new
     @basic = Basic.new
@@ -45,6 +39,13 @@ class BasicsController < ApplicationController
     end
 
   end
+
+
+  def edit
+    @basics = Basic.find(params[:id])
+    @@basic_before = Basic.find(params[:id])
+  end
+
 
   def update
     @basics = Basic.find(params[:id])
