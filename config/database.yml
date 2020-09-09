@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: pawa-syoukai2_production
   username: pawa-syoukai2
   password: <%= ENV['PAWA-SYOUKAI2_DATABASE_PASSWORD'] %>
